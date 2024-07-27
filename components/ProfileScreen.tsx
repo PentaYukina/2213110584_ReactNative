@@ -8,10 +8,10 @@ const ProfileScreen = ():React.JSX.Element => {
     const [name,setName] = useState("Pattarapa Janstamp");
     const [image,setImage] = useState(proflieImage);
     const handleChangeName = ()=>{
-        setName("New Name")
+        setName(name == "Pattarapa Janstamp" ? "June" : "Pattarapa Janstamp")
     }
     const handleChangeImage = ()=>{
-        setImage(proflieImage1)
+        setImage(image == proflieImage1 ? proflieImage : proflieImage1 )
     }
   return (
     <View style={styles.container}>
