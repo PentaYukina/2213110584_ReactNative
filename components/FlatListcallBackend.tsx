@@ -1,5 +1,5 @@
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
-import { React, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface User {
   id: string;
