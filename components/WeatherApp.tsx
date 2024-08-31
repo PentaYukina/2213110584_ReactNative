@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Pressable, Modal, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
 import WeatherBangkok from "./WeatherBangkok";
 import WeatherLondon from "./WeatherLondon";
@@ -16,42 +23,36 @@ const WeatherApp = (): React.JSX.Element => {
     if (selectedCity === "London") {
       return <WeatherLondon />;
     } else if (selectedCity === "Bangkok") {
-      return <WeatherLondon />;
+      return <WeatherBangkok />;
     }
     return null;
   };
 
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Weather App</Text>
-      <Pressable
-        style={styles.button}
-        onPress={() => setModalVisible(true)}
-      >
+      <Text style={styles.title}>Weather App</Text>
+      <Pressable style={styles.button} onPress={() => {setModalVisible(true),toggleModal("London")}}>
         <Text style={styles.buttonText}>LONDON</Text>
       </Pressable>
-      <Pressable
-        style={styles.button}
-        onPress={() => setModalVisible(true)}
-      >
+      <Pressable style={styles.button} onPress={() => {setModalVisible(true),toggleModal("Bangkok")}}>
         <Text style={styles.buttonText}>BANGKOK</Text>
       </Pressable>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(!modalVisible)}
       ></Modal>
-      <View  style={styles.modalBackground}>
+      <View style={styles.modalBackground}>
         <View style={styles.modalContainer}>
-            {renderWeatherComponent()}
-        <TouchableOpacity style={styles.closeButton}>
-            onPress={() => setModalVisible(!modalVisible)}
-        </TouchableOpacity>
-          
-            <Text style={styles.closeButtonText}>Hide Modal</Text>
-          </View>
+          {renderWeatherComponent()}
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => setModalVisible(false)}
+          >
+            <Text style={styles.closeButtonText}>Close</Text>
+          </TouchableOpacity>
         </View>
+      </View>
     </View>
   );
 };
