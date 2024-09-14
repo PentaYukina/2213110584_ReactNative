@@ -9,7 +9,7 @@ const MenuScreen = ({ navigation }: any): React.JSX.Element => {
       <Header
         barStyle="default"
         centerComponent={{
-          text: "MY TITLE",
+          text: "Thai-Nichi",
           style: { color: "#fff" },
         }}
         containerStyle={{ width: "100%", height: 200 }}
